@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="Conference.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-05.1.7">
+  <WebRole name="Conference.Web.Admin" vmsize="ExtraSmall">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="8080" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Diagnostics.ScheduledTransferPeriod" />
+      <Setting name="Diagnostics.LogLevelFilter" />
+      <Setting name="Diagnostics.PerformanceCounterSampleRate" />
+      <Setting name="DbContext.ConferenceManagement" />
+      <Setting name="DbContext.SqlBus" />
+      <Setting name="MaintenanceMode" />
+    </ConfigurationSettings>
+  </WebRole>
+  <WebRole name="Conference.Web.Public" vmsize="ExtraSmall">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Diagnostics.ScheduledTransferPeriod" />
+      <Setting name="Diagnostics.LogLevelFilter" />
+      <Setting name="Diagnostics.PerformanceCounterSampleRate" />
+      <Setting name="DbContext.Payments" />
+      <Setting name="DbContext.ConferenceRegistration" />
+      <Setting name="DbContext.SqlBus" />
+      <Setting name="DbContext.BlobStorage" />
+      <Setting name="MaintenanceMode" />
+      <Setting name="InstrumentationEnabled" />
+    </ConfigurationSettings>
+    <Startup>
+      <Task taskType="simple" executionContext="elevated" commandLine="setup\install.cmd">
+        <Environment>
+          <Variable name="EMULATED">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+          <Variable name="INSTRUMENTATIONENABLED">
+            <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='InstrumentationEnabled']/@value" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+  </WebRole>
+  <WorkerRole name="WorkerRoleCommandProcessor" vmsize="ExtraSmall">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Diagnostics.ScheduledTransferPeriod" />
+      <Setting name="Diagnostics.LogLevelFilter" />
+      <Setting name="Diagnostics.PerformanceCounterSampleRate" />
+      <Setting name="DbContext.Payments" />
+      <Setting name="DbContext.EventStore" />
+      <Setting name="DbContext.BlobStorage" />
+      <Setting name="DbContext.ConferenceRegistrationProcesses" />
+      <Setting name="DbContext.ConferenceRegistration" />
+      <Setting name="DbContext.SqlBus" />
+      <Setting name="DbContext.ConferenceManagement" />
+      <Setting name="MaintenanceMode" />
+      <Setting name="DbContext.MessageLog" />
+      <Setting name="InstrumentationEnabled" />
+    </ConfigurationSettings>
+    <Startup>
+      <Task taskType="simple" executionContext="elevated" commandLine="setup\install.cmd">
+        <Environment>
+          <Variable name="EMULATED">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+          <Variable name="INSTRUMENTATIONENABLED">
+            <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='InstrumentationEnabled']/@value" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+  </WorkerRole>
+</ServiceDefinition>

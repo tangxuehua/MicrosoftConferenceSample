@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56A53790-2571-4EA6-8742-2FA00E893B21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infrastructure.Azure</RootNamespace>
+    <AssemblyName>Infrastructure.Azure</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Infrastructure.Azure.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\packages\AutoMapper.2.1.267\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling">
+      <HintPath>..\..\..\packages\EnterpriseLibrary.WindowsAzure.TransientFaultHandling.5.0.1118.2\lib\NET4\Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.TransientFaultHandling.Core">
+      <HintPath>..\..\..\packages\TransientFaultHandling.Core.5.0.1118.2\lib\NET35\Microsoft.Practices.TransientFaultHandling.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\WindowsAzure.ServiceBus.1.7.0.1\lib\net40-full\Microsoft.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.7.0.1\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\WindowsAzure.Storage.1.7.0.0\lib\net35-full\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlobStorage\BlobStorageSettings.cs" />
+    <Compile Include="DynamicThrottling.cs" />
+    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="Instrumentation\AzureInstrumentationInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Instrumentation\AzureInstrumentationInstaller.Designer.cs">
+      <DependentUpon>AzureInstrumentationInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instrumentation\Constants.cs" />
+    <Compile Include="Instrumentation\EventStoreBusPublisherInstrumentation.cs" />
+    <Compile Include="Instrumentation\IEventStoreBusPublisherInstrumentation.cs" />
+    <Compile Include="Instrumentation\ISubscriptionReceiverInstrumentation.cs" />
+    <Compile Include="Instrumentation\SubscriptionReceiverInstrumentation.cs" />
+    <Compile Include="Instrumentation\SessionSubscriptionReceiverInstrumentation.cs" />
+    <Compile Include="Instrumentation\ISessionSubscriptionReceiverInstrumentation.cs" />
+    <Compile Include="MessageLog\AzureMessageLogWriter.cs" />
+    <Compile Include="MessageLog\AzureMessageLogListener.cs" />
+    <Compile Include="MessageLog\AzureEventLogReader.cs" />
+    <Compile Include="MessageLog\BrokeredMessageExtension.cs" />
+    <Compile Include="MessageLog\IAzureMessageLogWriter.cs" />
+    <Compile Include="MessageLog\MessageLogEntity.cs" />
+    <Compile Include="MessageLog\MessageLogSettings.cs" />
+    <Compile Include="MessageLog\QueryCriteriaExtensions.cs" />
+    <Compile Include="EventSourcing\AzureEventSourcedRepository.cs" />
+    <Compile Include="EventSourcing\IEventStoreBusPublisher.cs" />
+    <Compile Include="EventSourcing\IPendingEventsQueue.cs" />
+    <Compile Include="EventSourcing\EventData.cs" />
+    <Compile Include="EventSourcing\EventStore.cs" />
+    <Compile Include="EventSourcing\EventStoreBusPublisher.cs" />
+    <Compile Include="EventSourcing\EventTableServiceEntity.cs" />
+    <Compile Include="EventSourcing\IEventStore.cs" />
+    <Compile Include="Messaging\CommandBus.cs" />
+    <Compile Include="EventSourcing\EventSourcingSettings.cs" />
+    <Compile Include="InfrastructureSettings.cs" />
+    <Compile Include="Messaging\EventBus.cs" />
+    <Compile Include="Messaging\Handling\CommandDispatcher.cs" />
+    <Compile Include="Messaging\Handling\CommandProcessor.cs" />
+    <Compile Include="Messaging\Handling\EventProcessor.cs" />
+    <Compile Include="Messaging\MessageReleaseAction.cs" />
+    <Compile Include="Messaging\ServiceBusConfig.cs" />
+    <Compile Include="Messaging\SessionSubscriptionReceiver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Messaging\Handling\MessageProcessor.cs" />
+    <Compile Include="Messaging\BrokeredMessageEventArgs.cs" />
+    <Compile Include="Messaging\IMessageReceiver.cs" />
+    <Compile Include="Messaging\IMessageSender.cs" />
+    <Compile Include="Messaging\SubscriptionReceiver.cs" />
+    <Compile Include="Messaging\ServiceBusSettings.cs" />
+    <Compile Include="Messaging\SynchronousCommandBusDecorator.cs" />
+    <Compile Include="Messaging\TopicSender.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BlobStorage\CloudBlobStorage.cs" />
+    <Compile Include="Utils\BrokeredMessageExtensions.cs" />
+    <Compile Include="Utils\CacheAnyEnumerableExtensions.cs" />
+    <Compile Include="Utils\TaskEx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\CQRS-journey.licenseheader">
+      <Link>CQRS-journey.licenseheader</Link>
+    </None>
+    <EmbeddedResource Include="..\Settings.xsd">
+      <Link>Settings.xsd</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj">
+      <Project>{B5786D07-5888-4DF5-B295-3FEA593F3BFE}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Settings.Template.xml">
+      <Link>Settings.Template.xml</Link>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
