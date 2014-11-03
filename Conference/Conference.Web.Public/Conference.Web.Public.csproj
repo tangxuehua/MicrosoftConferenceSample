@@ -59,13 +59,6 @@
   <PropertyGroup Condition="$(AzureRuntimeAvailable) == 'true'">
     <DefineConstants>$(DefineConstants);AZURESDK</DefineConstants>
   </PropertyGroup>
-  <ItemGroup Condition="$(AzureRuntimeAvailable) == 'true'">
-    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Compile Include="WebRole.cs">
-      <Visible>$(AzureRuntimeAvailable)</Visible>
-    </Compile>
-  </ItemGroup>
   <!-- End Azure SDK specific conditionals -->
   <ItemGroup>
     <Reference Include="AutoMapper, Version=2.1.267.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -235,9 +228,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\CQRS-journey.licenseheader">
-      <Link>CQRS-journey.licenseheader</Link>
-    </None>
     <Content Include="Views\Registration\ReservationUnknown.cshtml" />
     <Content Include="Views\Registration\StartRegistration.cshtml" />
     <Content Include="Views\Registration\ThankYou.cshtml" />
@@ -301,11 +291,11 @@
     </ProjectReference>
     <ProjectReference Include="..\Payments\Payments.csproj">
       <Project>{DB59488E-0358-468D-B074-09A3BD4721BF}</Project>
-      <Name>Payments %28Payments\Payments%29</Name>
+      <Name>Payments</Name>
     </ProjectReference>
     <ProjectReference Include="..\Registration\Registration.csproj">
       <Project>{D93CC146-0A5B-4367-B356-CB0FC4B65E2B}</Project>
-      <Name>Registration %28Registration\Registration%29</Name>
+      <Name>Registration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

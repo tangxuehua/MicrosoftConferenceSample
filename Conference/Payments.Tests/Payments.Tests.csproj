@@ -63,13 +63,10 @@
     </ProjectReference>
     <ProjectReference Include="..\Payments\Payments.csproj">
       <Project>{DB59488E-0358-468D-B074-09A3BD4721BF}</Project>
-      <Name>Payments %28Payments\Payments%29</Name>
+      <Name>Payments</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\CQRS-journey.licenseheader">
-      <Link>CQRS-journey.licenseheader</Link>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

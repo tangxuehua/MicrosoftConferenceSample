@@ -83,9 +83,6 @@
     <Compile Include="SeatType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\CQRS-journey.licenseheader">
-      <Link>CQRS-journey.licenseheader</Link>
-    </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>

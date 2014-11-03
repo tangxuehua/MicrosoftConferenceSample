@@ -52,13 +52,6 @@
   <PropertyGroup Condition="$(AzureRuntimeAvailable) == 'true'">
     <DefineConstants>$(DefineConstants);AZURESDK</DefineConstants>
   </PropertyGroup>
-  <ItemGroup Condition="$(AzureRuntimeAvailable) == 'true'">
-    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Compile Include="WorkerRole.cs">
-      <Visible>$(AzureRuntimeAvailable)</Visible>
-    </Compile>
-  </ItemGroup>
   <!-- End Azure SDK specific conditionals -->
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -120,9 +113,6 @@
     <Compile Include="UnityContainerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\CQRS-journey.licenseheader">
-      <Link>CQRS-journey.licenseheader</Link>
-    </None>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -157,11 +147,11 @@
     </ProjectReference>
     <ProjectReference Include="..\Conference\Payments\Payments.csproj">
       <Project>{DB59488E-0358-468D-B074-09A3BD4721BF}</Project>
-      <Name>Payments %28Payments\Payments%29</Name>
+      <Name>Payments</Name>
     </ProjectReference>
     <ProjectReference Include="..\Conference\Registration\Registration.csproj">
       <Project>{D93CC146-0A5B-4367-B356-CB0FC4B65E2B}</Project>
-      <Name>Registration %28Registration\Registration%29</Name>
+      <Name>Registration</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Azure\Infrastructure.Azure\Infrastructure.Azure.csproj">
       <Project>{56A53790-2571-4EA6-8742-2FA00E893B21}</Project>

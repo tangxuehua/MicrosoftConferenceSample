@@ -59,13 +59,6 @@
   <PropertyGroup Condition="$(AzureRuntimeAvailable) == 'true'">
     <DefineConstants>$(DefineConstants);AZURESDK</DefineConstants>
   </PropertyGroup>
-  <ItemGroup Condition="$(AzureRuntimeAvailable) == 'true'">
-    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Compile Include="WebRole.cs">
-      <Visible>$(AzureRuntimeAvailable)</Visible>
-    </Compile>
-  </ItemGroup>
   <!-- End Azure SDK specific conditionals -->
   <ItemGroup>
     <Reference Include="AutoMapper, Version=2.1.267.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -230,9 +223,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\CQRS-journey.licenseheader">
-      <Link>CQRS-journey.licenseheader</Link>
-    </None>
     <Content Include="Views\Conference\Create.cshtml" />
     <Content Include="Views\Conference\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

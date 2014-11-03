@@ -60,9 +60,6 @@
     <Compile Include="SeatAssignmentsViewModelGeneratorFixture.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\CQRS-journey.licenseheader">
-      <Link>CQRS-journey.licenseheader</Link>
-    </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -91,7 +88,7 @@
     </ProjectReference>
     <ProjectReference Include="..\Registration\Registration.csproj">
       <Project>{D93CC146-0A5B-4367-B356-CB0FC4B65E2B}</Project>
-      <Name>Registration %28Registration\Registration%29</Name>
+      <Name>Registration</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

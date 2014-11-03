@@ -7,12 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration", "Conference\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration.Tests", "Conference\Registration.Tests\Registration.Tests.csproj", "{1F861D4D-FD0C-4CA3-BEDB-EDD276CB0248}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A5323007-38D6-4578-A811-2C0BB55002BD}"
-	ProjectSection(SolutionItems) = preProject
-		..\scripts\CreateDatabaseObjects.sql = ..\scripts\CreateDatabaseObjects.sql
-		..\install-packages.ps1 = ..\install-packages.ps1
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration.IntegrationTests", "Conference\Registration.IntegrationTests\Registration.IntegrationTests.csproj", "{302F4F0E-E277-45AC-A9F6-3D0D4CF75749}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure", "Azure", "{DCB62F05-E128-4944-AC53-A3E6848AF370}"
@@ -58,16 +52,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payments", "Payments", "{39
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRoleCommandProcessor", "WorkerRoleCommandProcessor\WorkerRoleCommandProcessor.csproj", "{8D856E0A-17CC-42FC-9F18-32D20EF0C53A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseInitializer", "DatabaseInitializer\DatabaseInitializer.csproj", "{51717880-85AA-4BCB-AE92-8EDF27E37DFB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration.Contracts", "Registration.Contracts\Registration.Contracts.csproj", "{1749075E-95A9-4043-8499-9A77936A9534}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{EB2A0055-A001-498D-B4AA-7E3DF72C8F84}"
-	ProjectSection(SolutionItems) = preProject
-		Migrations\Migrations-Readme.txt = Migrations\Migrations-Readme.txt
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Tests", "Infrastructure\Infrastructure.Tests\Infrastructure.Tests.csproj", "{449F6FFD-3817-496A-BCDE-71D5F4710811}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{27175943-69C3-4C45-A35C-FA5BF6EF6AED}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\AddNetworkServiceUser.sql = scripts\AddNetworkServiceUser.sql
+		scripts\CreateDatabaseObjects.sql = scripts\CreateDatabaseObjects.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -178,12 +171,6 @@ Global
 		{8D856E0A-17CC-42FC-9F18-32D20EF0C53A}.DebugLocal|Any CPU.Build.0 = DebugLocal|Any CPU
 		{8D856E0A-17CC-42FC-9F18-32D20EF0C53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D856E0A-17CC-42FC-9F18-32D20EF0C53A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51717880-85AA-4BCB-AE92-8EDF27E37DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51717880-85AA-4BCB-AE92-8EDF27E37DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51717880-85AA-4BCB-AE92-8EDF27E37DFB}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
-		{51717880-85AA-4BCB-AE92-8EDF27E37DFB}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
-		{51717880-85AA-4BCB-AE92-8EDF27E37DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51717880-85AA-4BCB-AE92-8EDF27E37DFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1749075E-95A9-4043-8499-9A77936A9534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1749075E-95A9-4043-8499-9A77936A9534}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1749075E-95A9-4043-8499-9A77936A9534}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
